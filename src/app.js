@@ -57,7 +57,6 @@ app.get('/weather', (req, res) => {
                 if (error) {
                     return res.send({ error });
                 }
-                console.log('✅ Geocode Data:', data);
                 res.send({
                     forecast: forecastData,
                     location,
@@ -65,6 +64,19 @@ app.get('/weather', (req, res) => {
                 });
             });
         })
+})
+
+app.get('/products', (req, res) => {
+    if (!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term'
+        })
+    }
+
+    console.log(req.query.search)
+    res.send({
+        products: []
+    })
 })
 
 app.get('/help/*', (req, res) => {
