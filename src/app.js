@@ -6,6 +6,7 @@ const forecast = require('./utils/forecast.js');
 
 
 const app = express() //app 초기화
+const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname, '../public')
 //public의 절대경로 설정, 정적폴더로 설정
 const viewPath = path.join(__dirname, '../templates/views')
@@ -85,6 +86,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port' + port)
 })
